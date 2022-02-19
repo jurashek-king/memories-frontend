@@ -2,24 +2,29 @@ import React, { useState } from 'react';
 import Wrapper from './FormStyles';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
-import { createPost } from '../../actions/posts';
+import { addNewPost } from '../Posts/postsSlice';
+import { defaultImage } from '../../defaultPicture';
 
-
-const Form = () => {
-
+const Form = (props) => {
+  console.log(props);
   const dispatch = useDispatch();
-   
-  const [postData, setPostData] = useState({
+  const image = defaultImage();
+  const initialState = {
     author: '',
     title: '',
     tags: '',
     message: '',
-    selectedFiles: '',
-  });
+    selectedFiles: image,
+  }
+
+
+  const [postData, setPostData] = useState(initialState);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(createPost(postData))
+
+    dispatch(addNewPost(postData));
+    setPostData(initialState);
   };
 
   const handleChange = (event) => {
@@ -36,16 +41,31 @@ const Form = () => {
       onSubmit={handleSubmit}
       autoComplete="off"
     >
-      <p>Memory</p>
-      <input id="author" value={postData.author} onChange={handleChange} placeholder='Author'/>
-      <input id="title" value={postData.title} onChange={handleChange} placeholder='Title'/>
-      <input id="tags" value={postData.tags} onChange={handleChange} placeholder='Tags'/>
+      <p>Memories</p>
+      <input
+        id="author"
+        value={postData.author}
+        onChange={handleChange}
+        placeholder="Author"
+      />
+      <input
+        id="title"
+        value={postData.title}
+        onChange={handleChange}
+        placeholder="Title"
+      />
+      <input
+        id="tags"
+        value={postData.tags}
+        onChange={handleChange}
+        placeholder="Tags"
+      />
       <textarea
         id="message"
         form="createMemory"
         name="message"
         required
-        placeholder="You memory..."
+        placeholder="Enter your memory here"
         value={postData.message}
         onChange={handleChange}
       ></textarea>

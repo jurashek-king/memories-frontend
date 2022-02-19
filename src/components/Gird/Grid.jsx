@@ -5,10 +5,12 @@ import Form from '../Form/Form';
 
 const Grid = () => {
   return (
-    <Wrapper>
-      <Posts />
-      <Form />
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Posts />
+        <Form />
+      </Wrapper>
+    </>
   );
 };
 
