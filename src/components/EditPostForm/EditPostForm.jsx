@@ -28,7 +28,7 @@ const EditPostForm = () => {
   };
 
   const handleSubmit = (event) => {
-    console.log(memory);
+    
     event.preventDefault();
     dispatch(updatePostById({postId: postId, updatedPost: memory}));
     navigate('../posts');

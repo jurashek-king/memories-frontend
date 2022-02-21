@@ -8,7 +8,8 @@ const Wrapper = styled.div`
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  /* grid-area: post; */
+  margin: auto;
+
   img {
     width: 100%;
   }
@@ -65,12 +66,16 @@ const Wrapper = styled.div`
   .post-footer {
     position: absolute;
     bottom: 0;
-    /* border: 1px solid gray; */
     width: 100%;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
     display: flex;
     justify-content: space-around;
+  }
+
+  #author, #timestamp, p + a {
+    color: #fff;
+    text-shadow: 1px 1px 1px black;
   }
 
   button .icon {

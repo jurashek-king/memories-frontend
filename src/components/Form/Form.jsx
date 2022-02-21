@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Wrapper from './FormStyles';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 import { addNewPost } from '../Posts/postsSlice';
 import { defaultImage } from '../../defaultPicture';
+import { StyledForm } from './FormStyles';
 
-const Form = (props) => {
-  console.log(props);
+const Form = () => {
+  
   const dispatch = useDispatch();
   const image = defaultImage();
   const initialState = {
@@ -15,8 +15,7 @@ const Form = (props) => {
     tags: '',
     message: '',
     selectedFiles: image,
-  }
-
+  };
 
   const [postData, setPostData] = useState(initialState);
 
@@ -35,7 +34,7 @@ const Form = (props) => {
   };
 
   return (
-    <Wrapper
+    <StyledForm
       id="createMemory"
       noValidate
       onSubmit={handleSubmit}
@@ -71,7 +70,7 @@ const Form = (props) => {
       ></textarea>
       <FileBase type="file" multiple={false} onDone={handleDone} />
       <button type="submit">Submit</button>
-    </Wrapper>
+    </StyledForm>
   );
 };
 

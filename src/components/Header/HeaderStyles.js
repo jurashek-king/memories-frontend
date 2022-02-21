@@ -7,9 +7,7 @@ const Wrapper = styled.header`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* width: 80vw; */
   height: auto;
-  /* border: 1px solid red; */
   
   div {
     border: 1px solid #1fdbd8;
@@ -31,13 +29,13 @@ const Wrapper = styled.header`
       margin-left: 0.125rem;
     }
   }
-
-  nav {
-    /* border: 1px solid blue; */
-    a {
-      color: black;
-    }
+  
+  a {
+    color: black;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
   }
+
 `;
 
 export default Wrapper;

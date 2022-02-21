@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1rem;
+  gap: 2rem;
 `;
 export default Wrapper;

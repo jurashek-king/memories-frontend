@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.form`
+export const StyledForm = styled.form`
   border: 1px solid #1fdbd8;
   background-color: #fff;
   width: 18rem;
@@ -11,11 +11,13 @@ const Wrapper = styled.form`
   justify-content: center;
   position: relative;
   border-radius: 10px;
+  justify-self: end;
+  flex-shrink: 0;
 
   p {
     font-weight: 700;
     font-size: 1.5rem;
-    color:#3cc5ec;
+    color: #3cc5ec;
   }
 
   textarea {
@@ -49,5 +51,3 @@ const Wrapper = styled.form`
   }
 
 `;
-
-export default Wrapper;

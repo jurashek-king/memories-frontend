@@ -1,8 +1,8 @@
 const url = 'http://localhost:8000/posts';
 
 export const fetchPosts = async () => {
-  const fetched = await (await fetch(url)).json();
-  return fetched;
+  const response = await (await fetch(url)).json();
+  return response;
 };
 export const createPost = async (newPost) => {
   const response = await fetch(url, {
@@ -20,10 +20,8 @@ export const deletePost = async (postId) => {
   return (await response.json()).id;
 };
 
-export const updatePost = async (args) => {
-  const {postId} = args;
-  const {updatedPost} = args;
-  console.log(postId, updatedPost);
+export const updatePost = async ({postId, updatedPost}) => {
+
   let response = await fetch(`${url}/${postId}`, {
     method: 'PUT',
     headers: {
@@ -31,8 +29,9 @@ export const updatePost = async (args) => {
     },
     body: JSON.stringify(updatedPost),
   });
+
   response = await response.json();
-  console.log(response);
+  
   return {
     id: postId,
     changes: {...response}

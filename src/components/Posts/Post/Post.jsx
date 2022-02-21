@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 const Post = ({ post }) => {
+
   const dispatch = useDispatch();
   const timeStamp = `${formatDistanceToNow(parseISO(post.createdAt))} ago`;
   const tags = post.tags[0].split(',').map((tag) => `#${tag.trim()}`);
@@ -33,7 +34,6 @@ const Post = ({ post }) => {
       <p id="title">{post.title.toUpperCase()}</p>
       <div id="excerpt">{post.message.substring(0, 60)} ...</div>
 
-      {/* <p id="excerpt">{post.message}</p> */}
       <div className="post-footer">
         <button type="button">
           <FontAwesomeIcon className="icon" icon={faThumbsUp} />

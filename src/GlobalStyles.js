@@ -17,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
     width: 60%;
     margin: 0 auto;
     }
+
+    @media screen and (max-width: 468px) {
+      width: 100%;
+    }
 `;
 
 export default GlobalStyle;

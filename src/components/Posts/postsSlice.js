@@ -2,7 +2,6 @@ import {
   createSlice,
   createAsyncThunk,
   createEntityAdapter,
-  createSelector,
 } from '@reduxjs/toolkit';
 import { fetchPosts, createPost, deletePost, updatePost } from '../../api/Api';
 
@@ -51,7 +50,6 @@ const postsSlice = createSlice({
 });
 
 export const postsReducer = postsSlice.reducer;
-console.log(postsSlice);
 
 export const { selectAll: selectAllPosts, selectById } =
   postsAdapter.getSelectors((state) => state.posts);
