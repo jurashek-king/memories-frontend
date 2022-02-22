@@ -31,7 +31,7 @@ You can add, delete and update posts. You can also upload one image for each mem
 
 ## Run application
 
-Application works with this (express server)[].
+Application works with this (express server)[https://github.com/jurashek-king/memories-backend.git].
 
 Clone this repo with `git clone`.<br>
 After cloning run `npm install` to install all dependencies.<br>
