@@ -8,12 +8,15 @@ const Header = () => {
     <>
       <Wrapper>
         <div>
-          <p>Memories</p>
+          <Link to="posts">
+            <p>Memories</p>
+          </Link>
           <img src={memories} alt="logo" />
         </div>
-        <nav>
-          <Link to="posts">Posts</Link>
-        </nav>
+
+        <Link id="signin" to="signin">
+          Sign In
+        </Link>
       </Wrapper>
       <Outlet />
     </>

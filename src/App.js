@@ -5,6 +5,7 @@ import GlobalStyle from './GlobalStyles';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EditPostForm from './components/EditPostForm/EditPostForm';
+import SignInForm from './components/SignInForm/SignInForm';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Header />}>
           <Route path='posts' element={<Grid />} />
           <Route path='posts/:postId' element={<EditPostForm />} />
+          <Route path='signin' element={<SignInForm />} />
         </Route>
       </Routes>
     </BrowserRouter>
