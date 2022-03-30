@@ -36,8 +36,7 @@ export const SignInStyled = styled.form`
 `;
 
 export const StyledFormInput = styled.input.attrs((props) => ({
-  type: props.type || 'text',
-}))`
+  }))`
   width: 100%;
   height: 2rem;
 `;
@@ -48,4 +47,11 @@ export const StyledFormButton = styled.button`
   background-color: #3a53f2;
   color: #fff;
   border: none;
+`;
+
+export const SignUpStyled = styled(SignInStyled)`
+  div {
+    display: flex;
+    gap: 1rem;
+  }
 `;

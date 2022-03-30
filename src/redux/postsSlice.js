@@ -3,11 +3,11 @@ import {
   createAsyncThunk,
   createEntityAdapter,
 } from '@reduxjs/toolkit';
-import { fetchPosts, createPost, deletePost, updatePost } from '../../api/Api';
+import { fetchPosts, createPost, deletePost, updatePost, likePost } from '../api/Api';
 
 const postsAdapter = createEntityAdapter({
   selectId: (post) => post._id,
-  sortComparer: (a, b) => a.createdAt.localeCompare(b.createdAt),
+  sortComparer: (a, b) => b.createdAt.localeCompare(a.createdAt),
 });
 
 export const fetchAll = createAsyncThunk('posts/fetchPosts', fetchPosts);
@@ -20,6 +20,8 @@ export const deletePostById = createAsyncThunk(
 );
 
 export const updatePostById = createAsyncThunk('posts/updatePost/:id', updatePost);
+
+export const updateLike = createAsyncThunk('posts/likePost/:id', likePost);
 
 const initialState = postsAdapter.getInitialState({
   status: 'idle',
@@ -45,7 +47,8 @@ const postsSlice = createSlice({
       })
       .addCase(addNewPost.fulfilled, postsAdapter.addOne)
       .addCase(deletePostById.fulfilled, postsAdapter.removeOne)
-      .addCase(updatePostById.fulfilled, postsAdapter.updateOne);
+      .addCase(updatePostById.fulfilled, postsAdapter.updateOne)
+      .addCase(updateLike.fulfilled, postsAdapter.updateOne)
   },
 });
 

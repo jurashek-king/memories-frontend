@@ -2,7 +2,7 @@ import React from 'react';
 import Wrapper from './EditPostFormStyles';
 import FileBase from 'react-file-base64';
 import { useParams, useNavigate } from 'react-router-dom';
-import { selectById, updatePostById } from '../Posts/postsSlice';
+import { selectById, updatePostById } from '../../redux/postsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 

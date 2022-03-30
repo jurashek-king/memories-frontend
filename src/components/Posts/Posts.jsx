@@ -3,7 +3,7 @@ import Post from './Post/Post';
 import Wrapper from './PostsStyles';
 import { useSelector, useDispatch } from 'react-redux';
 import { Oval } from 'react-loader-spinner';
-import { selectAllPosts, fetchAll } from './postsSlice';
+import { selectAllPosts, fetchAll } from '../../redux/postsSlice';
 import { useEffect } from 'react';
 
 const Posts = () => {

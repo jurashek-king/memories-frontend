@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
-import { addNewPost } from '../Posts/postsSlice';
+import { addNewPost } from '../../redux/postsSlice';
 import { defaultImage } from '../../defaultPicture';
 import { StyledForm } from './FormStyles';
 

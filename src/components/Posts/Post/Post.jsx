@@ -7,18 +7,20 @@ import {
   faTrashCan,
   faEllipsis,
 } from '@fortawesome/free-solid-svg-icons';
-import { deletePostById } from '../postsSlice';
+import { deletePostById, updateLike } from '../../../redux/postsSlice';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
-
   const dispatch = useDispatch();
   const timeStamp = `${formatDistanceToNow(parseISO(post.createdAt))} ago`;
   const tags = post.tags[0].split(',').map((tag) => `#${tag.trim()}`);
-
   const handleDelete = () => {
     dispatch(deletePostById(post._id));
+  };
+
+  const handleLike = () => {
+    dispatch(updateLike(post._id));
   };
 
   return (
@@ -26,8 +28,8 @@ const Post = ({ post }) => {
       <div id="overview">
         <p id="author">{post.author}</p>
         <p id="timestamp">{timeStamp}</p>
-        <Link to={`${post._id}`} >
-          <FontAwesomeIcon icon={faEllipsis} size='xl'/>
+        <Link to={`${post._id}`}>
+          <FontAwesomeIcon icon={faEllipsis} size="xl" />
         </Link>
       </div>
       <p id="tags">{tags.map((tag) => `${tag} `)}</p>
@@ -35,10 +37,11 @@ const Post = ({ post }) => {
       <div id="excerpt">{post.message.substring(0, 60)} ...</div>
 
       <div className="post-footer">
-        <button type="button">
+        <button type="button" onClick={handleLike}>
           <FontAwesomeIcon className="icon" icon={faThumbsUp} />
           LIKE
         </button>
+        <p>{post.likeCount}</p>
         <button type="button" onClick={handleDelete}>
           <FontAwesomeIcon className="icon" icon={faTrashCan} />
           DELETE
